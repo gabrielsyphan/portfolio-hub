@@ -1,0 +1,7 @@
+<div class="card-container">
+    <div class="card" *ngFor="let item of items">
+        <div class="card-content" (click)="onOpenPage(item.url)">
+            <p>{{item.title}}</p>
+        </div>
+    </div>
+</div>
