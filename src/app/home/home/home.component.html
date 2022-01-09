@@ -7,10 +7,12 @@
                 <div class="terminal-button green"></div>
             </div>
             <div class="terminal-body">
-                <h2>Welcome to SyphanHub</h2>
-                <p>Select below the option you are looking for</p>
-
-                <app-cards></app-cards>
+                <div *ngIf="!profile">
+                    <h2>Welcome to SyphanHub</h2>
+                    <p>Select below the option you are looking for</p>
+                    <app-cards></app-cards>
+                </div>
+                <app-profile *ngIf="profile"></app-profile>
             </div>
         </div>
     </div>

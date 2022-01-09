@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Item from '../../shared/models/Item';
 
 @Component({
@@ -8,10 +8,16 @@ import Item from '../../shared/models/Item';
 })
 export class CardsComponent implements OnInit {
 
+  @Input()
+  itemsToButtons: Item[] | undefined;
+
   public items: Item[] = [];
 
-  constructor() {
-    this.items = [
+  constructor() { }
+
+  ngOnInit(): void {
+    this.items = (this.itemsToButtons) ? this.itemsToButtons : 
+    [
       new Item(
         'Portfolio',
         'http://localhost:4200/portfolio',
@@ -25,9 +31,6 @@ export class CardsComponent implements OnInit {
         'http://minhaluzapp.com.br/ ',
       )
     ];
-   }
-
-  ngOnInit(): void {
   }
 
   onOpenPage(url: string): void {
