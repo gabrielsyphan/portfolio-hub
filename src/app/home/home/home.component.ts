@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public profile = true;
+  public profile = false;
 
-  constructor() { }
+  constructor(private location: Location) {
+   }
 
   ngOnInit(): void {
+    (this.location.path().includes('profile')) ? this.profile = true : this.profile = false;
   }
 
 }

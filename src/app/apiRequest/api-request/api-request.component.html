@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="content">
+    <h2>Welcome to Api Request</h2>
+    <p>This is a sample of a simple API request.</p>
+    <hr>
+
+    <div class="request-area">
+      <div class="subcontent-left">
+        <div class="send">
+          <h3>Send a new request</h3>
+          <hr>
+
+          <form (submit)="onSubmit($event)">
+            <label>Url:</label>
+            <input type="text" name="requestUrl" placeholder="Ex.: https://www.google.com/">
+            <label>Request type:</label>
+            <select name="requestMethod">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+
+            <label>Request body:</label>
+            <textarea name="requestBody" placeholder="Ex.: {'name': 'John Doe'}"></textarea>
+
+            <label>Repeat request every (in minutes):</label>
+            <input type="number" name="requestRepeat" value="0" placeholder="Ex.: 5">
+
+            <button class="btn-send">Send</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="subcontent-right">
+        <div class="code">
+          <code>
+            <pre>
+              {{contentBody}}
+            </pre>
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

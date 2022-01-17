@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Item from '../../shared/models/Item';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cards',
@@ -16,11 +17,11 @@ export class CardsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.items = (this.itemsToButtons) ? this.itemsToButtons : 
+    this.items = (this.itemsToButtons) ? this.itemsToButtons :
     [
       new Item(
         'Portfolio',
-        'http://localhost:4200/portfolio',
+        environment.BASE_URL + 'profile',
       ),
       new Item(
         'Orditi',
@@ -29,6 +30,10 @@ export class CardsComponent implements OnInit {
       new Item(
         'MinhaLuz',
         'http://minhaluzapp.com.br/ ',
+      ),
+      new Item(
+        'ApiRequest',
+        environment.BASE_URL + 'apiRequest',
       )
     ];
   }
